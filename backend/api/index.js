@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const app = express()
+require('dotenv').config()
 require('./Db/config.js')
 app.use(express.json());
 app.use(cors({ origin: '*', methods: ['POST', 'GET', 'DELETE','PUT'], allowedHeaders: ['Content-Type'] }));
@@ -67,5 +68,8 @@ app.put("/products/:id", async (req,res)=>{
     })
     res.send(result)
 })
-module.exports = app
-module.exports.handler = serverless(app)
+// module.exports = app
+// module.exports.handler = serverless(app)
+app.listen(5000,()=>{
+    console.log("app running")
+})
