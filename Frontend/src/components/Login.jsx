@@ -25,7 +25,7 @@ const Login = () => {
 
         try {
             // Make a POST request to the login API endpoint
-            let result = await fetch('http://localhost:5000/login', {
+            let result = await fetch('/api/login', {
                 method: 'POST',
                 body: JSON.stringify({ email, password }), // Send email and password as JSON
                 headers: {

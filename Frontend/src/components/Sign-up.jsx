@@ -26,7 +26,7 @@ const Signup = () => {
 
         try {
             // Make a POST request to the registration API endpoint
-            const result = await fetch('http://localhost:5000/reg', {
+            const result = await fetch('/api/reg', {
                 method: 'POST',
                 body: JSON.stringify({ name, email, password }), // Send user data as JSON
                 headers: {

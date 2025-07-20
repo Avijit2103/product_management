@@ -12,7 +12,7 @@ const UpdateProduct = () => {
 
     const getProductDetails = async () => {
         //console.log(name,price,category,company)
-        let res = await fetch(`http://localhost:5000/products/${id}`);
+        let res = await fetch(`/api/products/${id}`);
         res = await res.json()
         setName(res.name)
         setPrice(res.price)
@@ -26,7 +26,7 @@ const UpdateProduct = () => {
     }, [])
 
     const UpdateProduct = async () => {
-        let res = await fetch(`http://localhost:5000/products/${id}`, {
+        let res = await fetch(`/api/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

@@ -7,13 +7,13 @@ const ProductsList = () => {
     getProduct();
   }, [])
   const getProduct = async () => {
-    let result = await fetch('http://localhost:5000/products')
+    let result = await fetch('/api/products')
     result = await result.json()
     setProducts(result);
 
   }
   const deleteProduct = async (id) => {
-    let result = await fetch(`http://localhost:5000/products/${id}`, {
+    let result = await fetch(`/api/products/${id}`, {
       method: 'DELETE',
       headers: {
         "content-Type": "application/json",
