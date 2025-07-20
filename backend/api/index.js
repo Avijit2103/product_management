@@ -4,7 +4,7 @@ const app = express()
 require('./Db/config.js')
 app.use(express.json());
 app.use(cors({ origin: '*', methods: ['POST', 'GET', 'DELETE','PUT'], allowedHeaders: ['Content-Type'] }));
-
+const serverless = require('serverless-http')
 const User = require("./Db/users.js");
 const Product = require("./Db/Product.js")
 app.post("/reg", async (req, res) => {
@@ -67,4 +67,5 @@ app.put("/products/:id", async (req,res)=>{
     })
     res.send(result)
 })
-app.listen(5000);
+module.exports = app
+module.exports.handler = serverless(app)
