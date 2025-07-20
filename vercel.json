@@ -14,7 +14,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.js" // This is the key line for your API
+      "dest": "/api/index.js" 
     },
     {
       "src": "/(.*)",
