@@ -14,11 +14,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.js" // Route all /api requests to your serverless function
+      "dest": "/api/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/Frontend/$1" // Route all other requests to your React frontend
+      "dest": "/Frontend/$1"
     }
   ]
 }
