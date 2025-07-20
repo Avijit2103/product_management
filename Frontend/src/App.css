@@ -1,0 +1,439 @@
+/* Universal Box-Sizing for consistent layout */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styling for overall page background and font */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A modern, clean font */
+    background-color: #f0f2f5; /* Light grey background for the whole page */
+    /* If your main layout uses flexbox on body/html, adjust or remove the following lines */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* min-height: 100vh; */
+}
+
+/* -------------------------------------------------------------------------- */
+/* STYLES FOR NAVIGATION COMPONENT */
+
+/* Main navigation container */
+.navbar {
+    background-color: #2c3e50; /* Dark blue/charcoal background for a sleek look */
+    padding: 10px 20px; /* Padding inside the navbar */
+    display: flex; /* Use flexbox to align logo and nav-ul */
+    justify-content: space-between; /* Pushes logo to left, nav-ul to right */
+    align-items: center; /* Vertically centers items */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    position: sticky; /* Makes the navbar stick to the top */
+    top: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+    width: 100%; /* Ensure it spans full width */
+}
+
+/* Logo styling */
+.logo {
+    color: #ffffff; /* White text color for the logo */
+    font-size: 1.8em; /* Larger font size for prominence */
+    font-weight: 700; /* Bold font weight */
+    text-decoration: none; /* Ensure no underline if it were a link */
+    margin-right: 20px; /* Space between logo and nav links */
+    /* Removed image-specific properties like width, height, object-fit, border-radius */
+}
+
+/* Unordered list for navigation links */
+.nav-ul {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Make list items flex items */
+    gap: 25px; /* Space between navigation items */
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+}
+
+/* Align right for specific navigation sets (e.g., login/signup) */
+.nav-right {
+    margin-left: auto; /* Pushes this ul to the far right when in a flex container */
+}
+
+/* Anchor tags (links) inside list items */
+.nav-ul li a {
+    color: #ecf0f1; /* Light grey/off-white for link text */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 12px; /* Padding for click area */
+    border-radius: 5px; /* Slightly rounded corners for hover effect */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    font-weight: 500; /* Medium font weight */
+    font-size: 1.05em; /* Slightly larger font size */
+}
+
+.nav-ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle white background on hover */
+    color: #ffffff; /* Pure white text on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.nav-ul li a:active {
+    background-color: rgba(255, 255, 255, 0.25); /* Darker background on click */
+    transform: translateY(0); /* Press down effect */
+}
+
+/* -------------------------------------------------------------------------- */
+/* STYLES FOR FORMS (Login and Signup) */
+
+/* Common styling for form containers (.login and .form) */
+.login,
+.form {
+    /* Existing layout properties from your original .login and .form */
+    margin-left: 30%; /* Keep this for horizontal positioning */
+    margin-top: 100px; /* Keep this for vertical positioning */
+
+    /* Enhanced visual properties */
+    background-color: #ffffff; /* White background for the form box */
+    padding: 40px; /* Generous padding inside the box */
+    border-radius: 12px; /* Rounded corners for a softer look */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Softer, more modern shadow */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Space between inputs and button */
+    width: 380px; /* Specific width to make it compact but readable */
+    max-width: 90%; /* Ensure it's responsive on smaller screens */
+    box-sizing: border-box; /* Include padding in width calculation */
+    animation: fadeIn 0.8s ease-out forwards; /* Optional fade-in animation */
+}
+
+/* Heading inside the forms (h1 for Signup, h2 for Login) */
+.login h2,
+.form h1 {
+    text-align: center;
+    color: #333; /* Darker text for better contrast */
+    margin-bottom: 25px; /* Space below the heading */
+    font-size: 2.2em; /* Larger, more prominent heading */
+    font-weight: 600; /* Slightly bolder */
+}
+
+
+/* Input fields - These rules will apply to both Login and Signup forms */
+.inputBox {
+    display: block; /* Ensures inputs take full line */
+    width: 100%; /* Take full width of parent */
+    padding: 15px; /* Comfortable padding inside input */
+    border: 1px solid #e0e0e0; /* Light, subtle border */
+    border-radius: 8px; /* Rounded input field corners */
+    font-size: 1.1em; /* Readable font size */
+    color: #333; /* Input text color */
+    box-sizing: border-box; /* Include padding and border in width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
+}
+
+.inputBox:focus {
+    border-color: #6a5acd; /* A modern purple on focus */
+    outline: none; /* Remove default browser outline */
+    box-shadow: 0 0 0 4px rgba(106, 90, 205, 0.25); /* Subtle glow on focus */
+}
+
+.inputBox::placeholder {
+    color: #a0a0a0; /* Lighter placeholder text */
+}
+
+/* Submit button - These rules will apply to both Login and Signup forms */
+.submit {
+    padding: 15px 25px; /* Generous padding */
+    width: 100%; /* Take full width of parent */
+    background-color: #6a5acd; /* Vibrant royal purple */
+    color: white; /* White text for contrast */
+    border: none; /* No default border */
+    border-radius: 8px; /* Rounded button corners */
+    font-size: 1.2em; /* Larger font size */
+    font-weight: 600; /* Bolder text */
+    cursor: pointer; /* Indicate clickability */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.3); /* Soft shadow for depth */
+}
+
+.submit:hover {
+    background-color: #5544a8; /* Darker purple on hover */
+    transform: translateY(-3px); /* Subtle lift effect */
+    box-shadow: 0 6px 15px rgba(106, 90, 205, 0.4); /* Enhanced shadow on hover */
+}
+
+.submit:active {
+    background-color: #433785; /* Even darker on click */
+    transform: translateY(0); /* Press down effect */
+    box-shadow: 0 2px 5px rgba(106, 90, 205, 0.2); /* Smaller shadow on active */
+}
+
+/* Optional: Animation for the form containers */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------------------------------------------------- */
+/* EXISTING CSS FOR FOOTER */
+.footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: skyblue;
+  padding: 15px;
+  margin-top: 80px;
+  /* Consider z-index if it overlaps with sticky nav or other elements */
+}
+
+/* -------------------------------------------------------------------------- */
+/* EXISTING CSS FOR PRODUCT LIST */
+.productList {
+  margin: 50px auto; /* Center the list horizontally, add top margin */
+  width: 90%; /* Make it responsive */
+  max-width: 800px; /* Max width for larger screens */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: center; /* Center the heading */
+}
+
+.productList h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.productList ul {
+  display: grid; /* Use CSS Grid for a tabular layout */
+  grid-template-columns: 0.5fr 2fr 1fr 1.5fr 2fr; /* Define column widths */
+  list-style: none; /* Remove bullet points */
+  padding: 15px 0; /* Padding for rows */
+  border-bottom: 1px solid #eee; /* Separator for rows */
+  align-items: center; /* Vertically align content in cells */
+  font-size: 1em;
+}
+
+/* Header row specific styling */
+.productList ul:first-child {
+  background-color: #f8f8f8; /* Light background for header */
+  font-weight: 600;
+  color: #555;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-top: 0; /* Override default margin */
+  border-bottom: 2px solid #ddd; /* Stronger separator for header */
+}
+
+/* Individual list items (cells) */
+.productList li {
+  /* Remove inline-block and width from previous definition */
+  display: flex; /* Use flex for content within cells (e.g., buttons) */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  padding: 10px 5px; /* Padding inside each cell */
+  border: none; /* Remove individual cell borders */
+  width: auto; /* Let grid handle width */
+  color: #444;
+}
+
+/* Styling for product data rows */
+.productList ul:not(:first-child) {
+    background-color: #ffffff;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.productList ul:not(:first-child):hover {
+    background-color: #f5f5f5; /* Subtle hover effect on data rows */
+}
+
+/* Styling for buttons within the product list */
+.productList button {
+  background-color: #dc3545; /* Red for delete */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-right: 10px; /* Space between button and link */
+}
+
+.productList button:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.productList button:active {
+  transform: translateY(0);
+}
+
+/* Styling for links within the product list (Update) */
+.productList ul li a {
+  background-color: #007bff; /* Blue for update */
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.productList ul li a:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.productList ul li a:active {
+  transform: translateY(0);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* EXISTING CSS FOR OTHER ELEMENTS (Adjusted for consistency) */
+/* The .form, .product classes were previously just margin-left.
+   Now, .form is styled like .login. If .product is a different type of form/section,
+   you might need to define separate styles for it. */
+.product {
+  margin-left: 30%; /* Kept as per your original CSS */
+}
+
+.errorBox {
+  margin-top: -20px;
+  display: block;
+  box-sizing: border-box;
+  margin-left: 20px;
+  color: red;
+}
+
+/* Profile Specific CSS */
+
+/* Container to center the profile card */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top, or 'center' if you want it vertically centered on the page */
+    min-height: calc(100vh - 70px); /* Adjust based on navbar/footer height to center content */
+    padding: 50px 20px; /* Padding for overall container */
+    box-sizing: border-box;
+    /* Ensure body has a background if this is the only content */
+    background-color: #f0f2f5; /* Light grey background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Consistent font */
+}
+
+/* Profile Card Styling - Similar to .form/.login for consistency */
+.profile-card {
+    background-color: #ffffff; /* White background */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 450px; /* Slightly wider than forms for content */
+    box-sizing: border-box;
+    text-align: center; /* Center text within the card */
+    animation: fadeIn 0.8s ease-out forwards; /* Fade-in animation */
+}
+
+.profile-card h1 {
+    font-size: 2.5em; /* Larger heading for profile */
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Styling for individual detail rows (Name, Email) */
+.profile-detail {
+    display: flex;
+    justify-content: space-between; /* Space out "Name:" and the actual name */
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee; /* Subtle separator between details */
+    font-size: 1.1em;
+    color: #444;
+}
+
+.profile-detail:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.profile-detail strong {
+    color: #2c3e50; /* Darker color for labels */
+    font-weight: 600;
+    margin-right: 15px; /* Space between label and value */
+}
+
+.profile-detail span {
+    flex-grow: 1; /* Allow the value to take up remaining space */
+    text-align: right; /* Align value to the right */
+    color: #666;
+}
+
+/* Animation keyframes used by .profile-card */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.footer {
+  position: relative; /* Changed from absolute to relative to flow with content */
+  bottom: 0;
+  width: 100%;
+  background-color: #2c3e50; /* Dark background, consistent with navbar */
+  color: #ecf0f1; /* Light text color */
+  padding: 30px 20px; /* More padding */
+  text-align: center; /* Center content */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+    justify-content: space-around; /* Distribute sections evenly */
+    gap: 30px; /* Space between sections */
+    max-width: 1200px; /* Limit width for readability */
+    margin: 0 auto; /* Center content */
+    width: 100%;
+}
+
+.footer-section {
+    flex: 1; /* Allow sections to grow */
+    min-width: 200px; /* Minimum width before wrapping */
+    text-align: left; /* Align text within sections */
+}
+
+.footer-section h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #ffffff; /* White heading */
+    font-weight: 600;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #bdc3c7; /* Slightly darker light text */
+}
+
+.footer-section ul {
+    list-style: none; /* Remove bullets */
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #bdc3c7; /* Link color */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff; /* White on hover */
+    text-decoration: underline;
+}
