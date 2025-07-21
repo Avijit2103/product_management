@@ -68,7 +68,8 @@ app.put("/products/:id", async (req,res)=>{
     })
     res.send(result)
 })
-module.exports = serverless(app);
+ module.exports = app;
+ module.exports.handler = serverless(app)
 // app.listen(5000,()=>{
 //     console.log("app running")
 // })

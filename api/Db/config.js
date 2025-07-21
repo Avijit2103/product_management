@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');// This MUST be at the very top
-const DB_URI="mongodb+srv://yabhijit65:AFCvbKob90SiY1KM@e-commerce.tbzatxy.mongodb.net/?retryWrites=true&w=majority&appName=e-commerce"
 
 
-if (!DB_URI) {
+
+if (!process.env.MONGODB_URI) {
     console.error("CRITICAL ERROR: MONGODB_URI environment variable is not set in .env!");
     process.exit(1);
 }
 
 // THIS IS THE CRUCIAL LOG I NEED TO SEE
-console.log("Attempting to connect to MongoDB Atlas with URI:", DB_URI);
+console.log("Attempting to connect to MongoDB Atlas with URI:", process.env.MONGODB_URI);
 
-mongoose.connect(DB_URI)
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("MongoDB Atlas Connected Successfully!");
         // THIS IS THE OTHER CRUCIAL LOG I NEED TO SEE
