@@ -2,12 +2,12 @@ const express = require('express');
 const cors = require('cors')
 const app = express()
 require('dotenv').config()
-require('./Db/config.js')
+require('../Db/config.js')
 app.use(express.json());
 app.use(cors({ origin: '*', methods: ['POST', 'GET', 'DELETE','PUT'], allowedHeaders: ['Content-Type'] }));
 const serverless = require('serverless-http')
-const User = require("./Db/users.js");
-const Product = require("./Db/Product.js")
+const User = require("../Db/users.js");
+const Product = require("../Db/Product.js")
 app.post("/reg", async (req, res) => {
     let users = new User(req.body);
     let result = await users.save();
@@ -68,7 +68,7 @@ app.put("/products/:id", async (req,res)=>{
     })
     res.send(result)
 })
- module.exports = app;
+ module.exports = serverless(app);
 // app.listen(5000,()=>{
 //     console.log("app running")
 // })
