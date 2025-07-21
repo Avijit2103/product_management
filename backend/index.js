@@ -4,16 +4,14 @@ const app = express();
 
 require('dotenv').config();
 
-// This line correctly requires your ../Db/config.js file,
-// which you've shown handles the MongoDB connection.
-require('../Db/config.js');
+require('./Db/config.js');
 
 app.use(express.json());
 
 app.use(cors({ origin: '*', methods: ['POST', 'GET', 'DELETE','PUT'], allowedHeaders: ['Content-Type'] }));
 
-const User = require("../Db/users.js");
-const Product = require("../Db/Product.js");
+const User = require("./Db/users.js");
+const Product = require("./Db/Product.js");
 
 app.post("/reg", async (req, res) => {
     try {
