@@ -1,9 +1,15 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "index.js", // <-- Specify the source file for the build
+      "use": "@vercel/node" // <-- Tell Vercel to use the Node.js builder
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "index.js" 
+      "dest": "index.js"
     }
   ]
 }
