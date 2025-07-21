@@ -30,7 +30,7 @@ const AddProduct = () => {
 
         try {
             // Make a POST request to the add product API endpoint
-            let result = await fetch('/api/add-product', {
+            let result = await fetch('https://product-management-opy.onrender.com/add-product', {
                 method: 'POST',
                 body: JSON.stringify({ name, price, category, company, userId }),
                 headers: {

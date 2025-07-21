@@ -12,7 +12,7 @@ const UpdateProduct = () => {
 
     const getProductDetails = async () => {
         //console.log(name,price,category,company)
-        let res = await fetch(`/api/products/${id}`);
+        let res = await fetch(`https://product-management-opy.onrender.com/products/${id}`);
         res = await res.json()
         setName(res.name)
         setPrice(res.price)
@@ -26,7 +26,7 @@ const UpdateProduct = () => {
     }, [])
 
     const UpdateProduct = async () => {
-        let res = await fetch(`/api/products/${id}`, {
+        let res = await fetch(`https://product-management-opy.onrender.com/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

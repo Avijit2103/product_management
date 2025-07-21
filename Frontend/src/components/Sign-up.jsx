@@ -26,7 +26,7 @@ const Signup = () => {
 
         try {
             // Make a POST request to the registration API endpoint
-            const result = await fetch('/api/reg', {
+            const result = await fetch('https://product-management-opy.onrender.com/reg', {
                 method: 'POST',
                 body: JSON.stringify({ name, email, password }), // Send user data as JSON
                 headers: {

@@ -25,7 +25,7 @@ const Login = () => {
 
         try {
             // Make a POST request to the login API endpoint
-            let result = await fetch('/api/login', {
+            let result = await fetch('https://product-management-opy.onrender.com/login', {
                 method: 'POST',
                 body: JSON.stringify({ email, password }), // Send email and password as JSON
                 headers: {

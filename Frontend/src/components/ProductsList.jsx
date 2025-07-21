@@ -7,13 +7,13 @@ const ProductsList = () => {
     getProduct();
   }, [])
   const getProduct = async () => {
-    let result = await fetch('/api/products')
+    let result = await fetch('https://product-management-opy.onrender.com/products')
     result = await result.json()
     setProducts(result);
 
   }
   const deleteProduct = async (id) => {
-    let result = await fetch(`/api/products/${id}`, {
+    let result = await fetch(`https://product-management-opy.onrender.com/products/${id}`, {
       method: 'DELETE',
       headers: {
         "content-Type": "application/json",
