@@ -23,8 +23,6 @@ const AddProduct = () => {
   };
 
   const handleAddProduct = async () => {
-    // --- Basic Validation ---
-    // Check if all text fields are filled and quantity is valid
     if (!name || !price || !company || !category || quantity === '' || Number(quantity) < 0) {
       setError(true);
       alert("Please fill all product details, including a valid quantity (0 or more).");
