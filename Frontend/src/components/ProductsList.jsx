@@ -11,7 +11,7 @@ const ProductsList = () => {
 
   const getProduct = async () => {
     try {
-      let result = await fetch('http://localhost:8123/products'); 
+      let result = await fetch('https://product-management-opy.onrender.com/products'); 
       if (!result.ok) {
         if (result.status === 404) {
           setProducts([]); 
@@ -28,7 +28,7 @@ const ProductsList = () => {
   };
 
   const deleteProduct = async (id) => {
-    let result = await fetch(`http://localhost:8123/products/${id}`, { 
+    let result = await fetch(`https://product-management-opy.onrender.com/products/${id}`, { 
       method: 'DELETE',
     });
     const data = await result.json();

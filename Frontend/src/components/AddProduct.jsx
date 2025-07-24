@@ -41,7 +41,7 @@ const AddProduct = () => {
       try {
         // IMPORTANT: Use your backend's URL and PORT (e.g., http://localhost:8123)
         // If deployed on Render, use your Render backend's URL.
-        const uploadResponse = await fetch('http://localhost:8123/upload-image', {
+        const uploadResponse = await fetch('https://product-management-opy.onrender.com/upload-image', {
           method: 'POST',
           body: formData,
           // Do NOT set Content-Type header for FormData; fetch sets it automatically with correct boundary
@@ -68,7 +68,7 @@ const AddProduct = () => {
     const userId = auth ? JSON.parse(auth)._id : null; // Get userId if available
 
     try {
-      const addProductResponse = await fetch('http://localhost:8123/add-product', { // Your backend API on Render
+      const addProductResponse = await fetch('https://product-management-opy.onrender.com/add-product', { // Your backend API on Render
         method: 'POST',
         body: JSON.stringify({
           name,

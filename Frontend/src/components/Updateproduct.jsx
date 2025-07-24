@@ -20,7 +20,7 @@ const UpdateProduct = () => {
 
   const getProductDetails = async () => {
     try {
-      let result = await fetch(`http://localhost:8123/products/${params.id}`); // Your backend API
+      let result = await fetch(`https://product-management-opy.onrender.com/products/${params.id}`); // Your backend API
       if (!result.ok) {
         throw new Error(`Failed to fetch product details: ${result.statusText}`);
       }
@@ -57,7 +57,7 @@ const UpdateProduct = () => {
       formData.append('productImage', productImage);
 
       try {
-        const uploadResponse = await fetch('http://localhost:8123/upload-image', { 
+        const uploadResponse = await fetch('https://product-management-opy.onrender.com/upload-image', { 
           method: 'POST',
           body: formData,
         });
@@ -78,7 +78,7 @@ const UpdateProduct = () => {
 
     
     try {
-      const updateProductResponse = await fetch(`http://localhost:8123/products/${params.id}`, { // Your backend API
+      const updateProductResponse = await fetch(`https://product-management-opy.onrender.com/products/${params.id}`, { // Your backend API
         method: 'PUT',
         body: JSON.stringify({
           name,
